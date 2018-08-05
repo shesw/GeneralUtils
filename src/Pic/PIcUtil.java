@@ -26,7 +26,7 @@ public class PIcUtil {
 		String[] paths = new String[files.length];
 		SinaStoreSDK sss = new SinaStoreSDK();
 		for(int i=0;i<files.length;i++) {
-			String webPath = "markdownPic/ts"+files[i].getName();
+			String webPath = "markdownPic/ts"+prefix+files[i].getName();
 			sss.putObject("music-store", webPath, files[i]);
 			paths[i] = sss.generateUrl("music-store", webPath, minutes);
 		}
@@ -46,28 +46,6 @@ public class PIcUtil {
 		    out.close();  
 		}  
 		catch(Exception e){}  
-	}
-	
-	
-	public static void main(String args[]) {
-		
-		PIcUtil pIcUtil = new PIcUtil();
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("0: exit\n1: next");
-		
-		while(Integer.parseInt(scanner.nextLine())!=0) {
-			
-			String[] paths = pIcUtil.uploadPics(10);
-			for(String path:paths) {
-				System.out.println(path);
-			}	
-			
-			System.out.println("0: exit\n1: next");
-		}
-		
-		scanner.close();
-		System.out.println("end");
-		
 	}
 	
 }
