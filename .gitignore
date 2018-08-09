@@ -12,6 +12,7 @@
 
 # Package Files #
 *.jar
+!picUtil.jar
 *.war
 *.nar
 *.ear
